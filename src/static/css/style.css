@@ -1,246 +1,259 @@
-/*! CSS reset from benfrain/app-reset */
-*,:after,:before{box-sizing:inherit}html{box-sizing:border-box}
-*{user-select:none;-webkit-tap-highlight-color:rgba(255,255,255,0);-webkit-tap-highlight-color:transparent}
-[contenteditable],input[type]{user-select:text}body,h1,h2,h3,h4,h5,h6,p{margin:0;font-size:1rem;font-weight:400}
-a{text-decoration:none;color:inherit}b{font-weight:400}em,i{font-style:normal}a:focus,input:focus{outline:0}
-fieldset,input{appearance:none;border:0;padding:0;margin:0;min-width:0;font-size:1rem;font-family:inherit}
-input::-ms-clear{display:none}input[type=number]{-moz-appearance:textfield}
-input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{appearance:none}
-svg{display:inline-flex}img{max-width:100%;display:block}
-
 html {
-  color: #030303;
-  font: caption;
-  padding-bottom: 2em;
+    overflow: auto;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    font-family: 'Open Sans', sans-serif;
 }
 
 a {
-  color: #1f4ba0;
-  text-decoration: underline;
+    color: inherit !important;
 }
 
-header {
-  padding: 2em;
+a:hover {
+    text-decoration: none;
 }
 
-header .logo {
-  display: block;
-  margin: 0 auto;
-  max-width: 400px;
-  width: 100%;
+#root{
+    width: 100%;
+    height: 100%;
 }
 
-footer {
-  margin: 4em auto;
-  padding: 2em;
-  text-align: center;
-  max-width: 800px;
-  width: 100%;
+#homepage {
+    width: 100%;
 }
 
-footer p {
-  line-height: 1.2em;
-  margin: 0 0 1em 0;
+
+/* --------- Top Nav Styles --------- */
+.topNavContainer{
+    position: fixed;
 }
 
-.not-found {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 2em;
-  text-align: center;
-  width: 100%;
+.topNavLogoSearchContainer{
+    padding: 0 30px 0 30px;
+    height: 100%;
+}
+.container-fluid{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
 }
 
-.not-found h1 {
-  font-size: 3em;
-  font-weight: bold;
+.topNavSearch{
+    margin-left: 100px;
 }
 
-.not-found h2 {
-  font-size: 2em;
-  font-weight: bold;
+.topNavInput{
+    width: 400px !important;
+    background: #f5f5f5;
+    border:none !important;
 }
 
-.home .athletes-selector {
-  clear: both;
-  padding: 2em;
-  text-align: center;
+#topNav {
+    width: 100%;
 }
 
-.home .athletes-selector .athlete-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  display: inline-block;
-  margin: 0 1em 1em 0;
-  max-width: 200px;
-  padding: 0;
-  position: relative;
-  width: 100%;
+.navBar{
+    width:100%;
+    border-bottom: 1px solid rgba(0,0,0,.12);
 }
 
-.home .athletes-selector .athlete-preview img {
-  margin: 0;
-  width: 100%;
+.btn{
+    padding: .3rem .75rem;
+    border-color: #039ee2;
+    color: #039ee2;
 }
 
-.home .athletes-selector .athlete-preview .name {
-  color: #030303;
-  display: inline-block;
-  font-size: 1.6em;
-  overflow: hidden;
-  padding: .2em;
-  text-align: center;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
+.btn:hover{
+    background-color: #039ee2 !important;
+    border-color: #039ee2;
 }
 
-.home .athletes-selector .athlete-preview .medals-count {
-  background: #fff;
-  border-radius: 2px;
-  display: inline-block;
-  font-weight: bold;
-  margin: .2em;
-  padding: .2em .4em;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  vertical-align: middle;
+.home-btn{
+    background-color: #039ee2 !important;
+    border-color: #039ee2;
+    color:white;
 }
 
-nav.athletes-menu {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 2em;
-  text-align: center;
-  width: 100%;
+.googlePhotoWrapper {
+    padding: 0 50px 0 30px;
 }
 
-nav.athletes-menu a {
-  font-size: 1.6em;
-  margin: 0 1em 1em 0;
+.googlePhoto {
+    width: 45px;
+    border-radius: 50px;
+    cursor: pointer;
 }
 
-nav.athletes-menu a.active {
-  color: #030303;
-  text-decoration: none;
+.IconMenu{
+    font-size:22px;
+    color:#7b8186;
+    cursor: pointer;
 }
 
-.athlete {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  margin: 0 auto;
-  max-width: 800px;
-  width: 100%;
+#collapsePushMenu{
+    z-index: 9999999999;
+    margin-top: 125px !important;
 }
 
-.athlete header {
-  background: #ccc;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 200px;
+
+
+
+/* --------- Widget Styles ---------- */
+
+.w-container{
+    border:1px solid black;
+    height:200px;
+    resize: both;
+    overflow: auto;
 }
 
-.athlete .picture-container {
-  margin: -160px 0 0 0;
-  padding: 0 1em 0 1em;
+.inline{
+    display: inline-flex;
 }
 
-.athlete .picture-container img {
-  border-radius: 4px;
-  border: 8px solid #fff;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-  display: inline;
-  margin: 0 0 0 1em;
-  width: 200px;
+.vertical > * {
+  display :block;
 }
 
-.athlete .picture-container h2 {
-  display: inline;
-  font-size: 3em;
-  padding: 0 0 0 .5em;
-  width: auto;
+.w-top{
+    height:32px;
+    width:100%;
+    background: lightgray;
 }
 
-.athlete .flag .icon {
-  display: inline-block;
-  padding-bottom: .1em;
-  width: auto;
+.w-top-left{
+    float:left;
+    padding:5px 7px;
+}
+.w-top-right{
+    float:right;
+    padding:5px 7px;
+}
+.e-iframe-container{
+    padding:10px;
 }
 
-.athlete .description,
-.athlete .medals {
-  font-size: 1.6em;
-  padding: 1em;
+
+/* ----- Side Menu Styles --------*/
+.menu-side1{
+    padding:95px 0px 0px 0px;
 }
 
-.athlete .medals p {
-  font-size: 1em;
+.menu-side{
+    height: 100vh;
+    transform: translateX(0);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+    background: #fff;
+    border-right: 1px solid rgba(0,0,0,.12);
+    bottom: 0;
+    font-size: 14px;
+    overflow-y: auto;
+    padding: 15px 0 40px;
+    /*position: fixed;*/
+    top: 0;
+    width:100%;
+    transition: transform .15s cubic-bezier(.4,0,.2,1);
 }
 
-.athlete .medals li {
-  list-style: none;
+li{
+    display:flex;
 }
 
-.athlete .medals .symbol {
-  border-radius: 50%;
-  display: inline-block;
-  font-size: .8em;
-  height: 1.6em;
-  justify-content: center;
-  margin: 5px;
-  text-align: center;
-  width: 1.6em;
+.menu-side-list{
+    list-style: none;
+    padding:0px;
 }
 
-.athlete .medals .symbol.symbol-G {
-  color: #daa520;
-  background-color: #fff6de;
-  border: 2px solid #daa520;
+.menu-main-item{
+    padding: 10px 13px 10px 20px;
+    font-size: 19px;
+    width: 100%;
+    display: flex;
 }
 
-.athlete .medals .symbol.symbol-S {
-  color: #383738;
-  background-color: #b9b5b5;
-  border: 2px solid #383738;
+.menu-item{
+    padding: 10px 10px 10px 62px;
+    font-size:16px;
+    width:100%;
 }
 
-.athlete .medals .symbol.symbol-B {
-  color: #6b1919;
-  background-color: #ea96a1;
-  border: 2px solid #6E1924;
+.menu-icons{
+    font-size:19px;
+    padding-right:20px;
+    cursor: pointer;
+}
+.mih:hover{
+    background:#efefef;
+}
+.border {
+    border: 1px solid #dee2e6 !important;
+}
+.activeMenuItem{
+    background:#f5f4f4;
 }
 
-.navigateBack {
-  font-size: 1.6em;
-  padding: 2em;
-  text-align: center;
-  text-decoration: none;
+.addWorkspace{
+    cursor:pointer;
 }
 
-#abar {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
+
+
+
+#iframe{
+    border:none; width:100%;height:100%;
 }
 
-#abar a {
-  background: #ffa500;
-  color: #000;
-  display: block;
-  font-weight: bold;
-  margin: 0;
-  padding: 1em;
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
+#Logo{
+    height:85px;
 }
 
-#abar a:hover {
-  text-decoration: underline;
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.floatRight{
+    float:right;
+}
+
+.settingsIconMenu{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+@keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+
+
+/* --------- Center Login Auth Div ---------- */
+.full-w-h{
+    position: absolute;
+    left: 50%;
+    margin-left: -180px;
+    top: 50%;
+    margin-top: -100px;
+    text-align: center;
+    width: 400px;
+}
+
+/* Homepage */
+.hp-background{
+    height:800px;
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.centerWrapper{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
 }
