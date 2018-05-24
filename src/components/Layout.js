@@ -1,3 +1,7 @@
+// DO NOT DELETE THIS file
+// IT DOES NOTHING, BUT PROGRAM CRASHES IF IT'S MISSING
+// STILL TRYING TO FIGURE OUT WHERE WHAT PARTS OF CODE DEPEND ON THIS
+
 import React from 'react';
 
 export default class Layout extends React.Component {

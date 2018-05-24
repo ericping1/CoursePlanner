@@ -1,5 +1,6 @@
 import React from 'react';
 import CourseItems from './CourseItems';
+import "../static/css/style.css"
 
 export default class CourseList extends React.Component {
 
@@ -11,41 +12,55 @@ export default class CourseList extends React.Component {
     };
 
     this.addItem = this.addItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   addItem(e) {
-    if (this._inputElement.value !== "") {
+    if (this._inputElement.value !== '') {
       var newItem = {
         text: this._inputElement.value,
         key: Date.now()
-      }
+      };
+
+      this.setState((prevState) => {
+        return {
+          items: prevState.items.concat(newItem)
+        };
+      });
+
+      this._inputElement.value = "";
+
     }
 
-    this.setState((prevState) => {
-      return {
-        items: prevState.items.concat(newItem)
-      };
-    });
-
-    this._inputElement.value = "";
 
     console.log(this.state.items);
 
     e.preventDefault();
   }
 
+  deleteItem(key) {
+    var filteredItems = this.state.items.filter(function (item) {
+      return (item.key !== key);
+    });
+
+    this.setState({
+      items: filteredItems
+    });
+  }
+
 
   render() {
     return(
-      <div>
-        <div>
+      <div className="courseListMain">
+        <div className="header">
           <form onSubmit={this.addItem}>
             <input ref={(a) => this._inputElement = a} placeholder="Enter course">
             </input>
             <button type="submit">add</button>
           </form>
         </div>
-        <CourseItems entries={this.state.items}/>
+        <CourseItems entries={this.state.items}
+            delete={this.deleteItem}/>
       </div>
     );
   }

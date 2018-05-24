@@ -1,259 +1,36 @@
-html {
-    overflow: auto;
+.courseListMain .header input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #FFF;
+  width: 165px;
 }
-
-body{
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    font-family: 'Open Sans', sans-serif;
+.courseListMain .header button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: #0066FF;
+  color: #FFF;
+  border: 2px solid #0066FF;
 }
-
-a {
-    color: inherit !important;
+.courseListMain .header button:hover {
+  background-color: #003399;
+  border: 2px solid #003399;
+  cursor: pointer;
 }
-
-a:hover {
-    text-decoration: none;
+.courseListMain .theList {
+  list-style: none;
+  padding-left: 0;
+  width: 250px;
 }
-
-#root{
-    width: 100%;
-    height: 100%;
+.courseListMain .theList li {
+  color: #333;
+  background-color: rgba(255,255,255,.5);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  list-style: none;
 }
-
-#homepage {
-    width: 100%;
-}
-
-
-/* --------- Top Nav Styles --------- */
-.topNavContainer{
-    position: fixed;
-}
-
-.topNavLogoSearchContainer{
-    padding: 0 30px 0 30px;
-    height: 100%;
-}
-.container-fluid{
-    padding-right: 0px !important;
-    padding-left: 0px !important;
-}
-
-.topNavSearch{
-    margin-left: 100px;
-}
-
-.topNavInput{
-    width: 400px !important;
-    background: #f5f5f5;
-    border:none !important;
-}
-
-#topNav {
-    width: 100%;
-}
-
-.navBar{
-    width:100%;
-    border-bottom: 1px solid rgba(0,0,0,.12);
-}
-
-.btn{
-    padding: .3rem .75rem;
-    border-color: #039ee2;
-    color: #039ee2;
-}
-
-.btn:hover{
-    background-color: #039ee2 !important;
-    border-color: #039ee2;
-}
-
-.home-btn{
-    background-color: #039ee2 !important;
-    border-color: #039ee2;
-    color:white;
-}
-
-.googlePhotoWrapper {
-    padding: 0 50px 0 30px;
-}
-
-.googlePhoto {
-    width: 45px;
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-.IconMenu{
-    font-size:22px;
-    color:#7b8186;
-    cursor: pointer;
-}
-
-#collapsePushMenu{
-    z-index: 9999999999;
-    margin-top: 125px !important;
-}
-
-
-
-
-/* --------- Widget Styles ---------- */
-
-.w-container{
-    border:1px solid black;
-    height:200px;
-    resize: both;
-    overflow: auto;
-}
-
-.inline{
-    display: inline-flex;
-}
-
-.vertical > * {
-  display :block;
-}
-
-.w-top{
-    height:32px;
-    width:100%;
-    background: lightgray;
-}
-
-.w-top-left{
-    float:left;
-    padding:5px 7px;
-}
-.w-top-right{
-    float:right;
-    padding:5px 7px;
-}
-.e-iframe-container{
-    padding:10px;
-}
-
-
-/* ----- Side Menu Styles --------*/
-.menu-side1{
-    padding:95px 0px 0px 0px;
-}
-
-.menu-side{
-    height: 100vh;
-    transform: translateX(0);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
-    background: #fff;
-    border-right: 1px solid rgba(0,0,0,.12);
-    bottom: 0;
-    font-size: 14px;
-    overflow-y: auto;
-    padding: 15px 0 40px;
-    /*position: fixed;*/
-    top: 0;
-    width:100%;
-    transition: transform .15s cubic-bezier(.4,0,.2,1);
-}
-
-li{
-    display:flex;
-}
-
-.menu-side-list{
-    list-style: none;
-    padding:0px;
-}
-
-.menu-main-item{
-    padding: 10px 13px 10px 20px;
-    font-size: 19px;
-    width: 100%;
-    display: flex;
-}
-
-.menu-item{
-    padding: 10px 10px 10px 62px;
-    font-size:16px;
-    width:100%;
-}
-
-.menu-icons{
-    font-size:19px;
-    padding-right:20px;
-    cursor: pointer;
-}
-.mih:hover{
-    background:#efefef;
-}
-.border {
-    border: 1px solid #dee2e6 !important;
-}
-.activeMenuItem{
-    background:#f5f4f4;
-}
-
-.addWorkspace{
-    cursor:pointer;
-}
-
-
-
-
-#iframe{
-    border:none; width:100%;height:100%;
-}
-
-#Logo{
-    height:85px;
-}
-
-.App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
-}
-
-.floatRight{
-    float:right;
-}
-
-.settingsIconMenu{
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-
-@keyframes App-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-
-
-
-/* --------- Center Login Auth Div ---------- */
-.full-w-h{
-    position: absolute;
-    left: 50%;
-    margin-left: -180px;
-    top: 50%;
-    margin-top: -100px;
-    text-align: center;
-    width: 400px;
-}
-
-/* Homepage */
-.hp-background{
-    height:800px;
-    width:100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-.centerWrapper{
-    text-align: center;
-    vertical-align: middle;
-    line-height: 90px;
+ul.theList {
+  padding: 0;
 }
