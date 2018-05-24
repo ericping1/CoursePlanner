@@ -5,7 +5,7 @@ export default class Quarter extends React.Component {
     return(
       <div>
         <p>
-          [ This is a specific quarter ]
+          [ This is the {this.props.qt} ]
         </p>
       </div>
     );

@@ -8,16 +8,13 @@ export default class OneYearPlan extends React.Component {
       <div>
         <tr>
           <th>
-            <Quarter />
+            <Quarter qt="FA"/>
           </th>
           <th>
-            <Quarter />
+            <Quarter qt="WI"/>
           </th>
           <th>
-            <Quarter />
-          </th>
-          <th>
-            <Quarter />
+            <Quarter qt="SP"/>
           </th>
         </tr>
       </div>
