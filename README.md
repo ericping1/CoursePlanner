@@ -9,5 +9,6 @@ Style Guide (Please try to follow this):
 
 Features to be added (in general order of importance):
   Cape checking (validating that selected courses will be offered that time)
+  Flexible row adjustments (for years at UCSD)
   Prerequisites handling (double checking if schedule is valid)
   ... More tba ?

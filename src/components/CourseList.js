@@ -29,12 +29,9 @@ export default class CourseList extends React.Component {
       });
 
       this._inputElement.value = "";
-
     }
 
-
     console.log(this.state.items);
-
     e.preventDefault();
   }
 
@@ -47,7 +44,6 @@ export default class CourseList extends React.Component {
       items: filteredItems
     });
   }
-
 
   render() {
     return(
