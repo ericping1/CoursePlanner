@@ -16,6 +16,12 @@ export default class CourseList extends React.Component {
   }
 
   addItem(e) {
+    var quarter = this.props.qt;
+    // Add future logic here
+    alert("WARNING!!!: The course ".concat(this._inputElement.value)
+        .concat(" is usually not offered in the ").concat(this.props.qt)
+        .concat(" quarter. Double check your course schedule!"));
+
     if (this._inputElement.value !== '') {
       var newItem = {
         text: this._inputElement.value,
@@ -50,7 +56,8 @@ export default class CourseList extends React.Component {
       <div className="courseListMain">
         <div className="header">
           <form onSubmit={this.addItem}>
-            <input ref={(a) => this._inputElement = a} placeholder="Enter course">
+            <input ref={(a) => this._inputElement = a}
+                placeholder={this.props.qt.concat(" course")}>
             </input>
             <button type="submit">add</button>
           </form>

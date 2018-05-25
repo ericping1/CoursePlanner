@@ -7,11 +7,11 @@ export default class Quarter extends React.Component {
       <div>
         <tr>
           <p>
-            [ This is the {this.props.qt} ]
+            {this.props.qt} quarter
           </p>
         </tr>
         <tr>
-          <CourseList />
+          <CourseList qt={this.props.qt}/>
         </tr>
       </div>
     );

@@ -1,3 +1,22 @@
+body {
+  padding: 50px;
+  background-color: #66CCFF;
+  font-family: sans-serif;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+#planningTable {
+  position: static;
+}
+
+td {
+  vertical-align: top;
+}
+
 .courseListMain .header input {
   padding: 10px;
   font-size: 16px;

@@ -6,17 +6,19 @@ export default class OneYearPlan extends React.Component {
   render () {
     return (
       <div>
-        <tr>
-          <th>
-            <Quarter qt="FA"/>
-          </th>
-          <th>
-            <Quarter qt="WI"/>
-          </th>
-          <th>
-            <Quarter qt="SP"/>
-          </th>
-        </tr>
+        <table id="planningTable">
+          <tr>
+            <td>
+              <Quarter qt="FA"/>
+            </td>
+            <td>
+              <Quarter qt="WI"/>
+            </td>
+            <td>
+              <Quarter qt="SP"/>
+            </td>
+          </tr>
+        </table>
       </div>
     )
   }
