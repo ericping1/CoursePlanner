@@ -50,8 +50,6 @@ export default class CourseList extends React.Component {
           .concat(" quarter. Double check your course schedule!"));
     }
 
-    // Adjust the total number of hours per week
-    this.props.timeChangeCallback(this.getNumHours(this._inputElement.value));
 
     // Check that empty string wasn't accidentally entered
     if (this._inputElement.value !== '') {
@@ -61,6 +59,9 @@ export default class CourseList extends React.Component {
         text: this._inputElement.value,
         key: Date.now()
       };
+
+      // Adjust the total number of hours per week
+      this.props.timeChangeCallback(this.getNumHours(this._inputElement.value));
 
       this.setState((prevState) => {
         return {

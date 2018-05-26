@@ -22,8 +22,11 @@ export default class Quarter extends React.Component {
     return(
       <div>
         <tr>
+          <h4>
+            {this.props.qt} Quarter
+          </h4>
           <p>
-            {this.props.qt} Quarter, {this.state.hours} hours per week
+            {this.state.hours} hours per week
           </p>
         </tr>
         <tr>
