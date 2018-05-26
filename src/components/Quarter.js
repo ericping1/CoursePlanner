@@ -2,16 +2,33 @@ import React from 'react'
 import CourseList from './CourseList';
 
 export default class Quarter extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hours: 0
+    };
+  }
+
+  // Callback function for updating number of hours of work
+  hoursCallback = (hoursChange) => {
+    var newHours = this.state.hours += hoursChange;
+    this.setState ({hours: newHours });
+
+  }
+
   render () {
     return(
       <div>
         <tr>
           <p>
-            {this.props.qt} quarter
+            {this.props.qt} Quarter, {this.state.hours} hours per week
           </p>
         </tr>
         <tr>
-          <CourseList qt={this.props.qt}/>
+          <CourseList qt={this.props.qt}
+              timeChangeCallback={this.hoursCallback} />
         </tr>
       </div>
     );
