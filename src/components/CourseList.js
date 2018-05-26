@@ -8,6 +8,7 @@ export default class CourseList extends React.Component {
     super(props);
 
     this.state = {
+
       // Array of items featured in list
       items: []
     };
@@ -52,7 +53,10 @@ export default class CourseList extends React.Component {
     // Adjust the total number of hours per week
     this.props.timeChangeCallback(this.getNumHours(this._inputElement.value));
 
+    // Check that empty string wasn't accidentally entered
     if (this._inputElement.value !== '') {
+
+      // Create new item and add it to the state state
       var newItem = {
         text: this._inputElement.value,
         key: Date.now()
@@ -64,6 +68,7 @@ export default class CourseList extends React.Component {
         };
       });
 
+      // Reset input element
       this._inputElement.value = "";
     }
 
@@ -72,6 +77,7 @@ export default class CourseList extends React.Component {
   }
 
   deleteItem(key) {
+
     // Subtract from hours per week workload
     this.props.timeChangeCallback(-1 * this.getNumHours(this._inputElement.value));
 
