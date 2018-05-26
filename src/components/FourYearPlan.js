@@ -4,7 +4,7 @@ import OneYearPlan from './OneYearPlan'
 export default class FourYearPlan extends React.Component {
   render() {
     return(
-      <div class='vertical'>
+      <div id="fullWidget">
         <OneYearPlan />
         <OneYearPlan />
         <OneYearPlan />

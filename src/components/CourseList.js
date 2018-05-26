@@ -8,6 +8,7 @@ export default class CourseList extends React.Component {
     super(props);
 
     this.state = {
+      // Array of items featured in list
       items: []
     };
 
@@ -36,18 +37,20 @@ export default class CourseList extends React.Component {
   }
 
   addItem(e) {
-    // Check whether course is offered during quarter
+    // Might want to first check if course exists in our database, and
+    // prevent addition of new course if not
+
+    // If course isn't usually offered during current time, alert user
     var isValid = this.checkCourseValid(this._inputElement.value,
         this.props.qt)
-
     if (!isValid) {
       alert("WARNING!!!: The course ".concat(this._inputElement.value)
           .concat(" is usually not offered in the ").concat(this.props.qt)
           .concat(" quarter. Double check your course schedule!"));
     }
 
+    // Adjust the total number of hours per week
     this.props.timeChangeCallback(this.getNumHours(this._inputElement.value));
-
 
     if (this._inputElement.value !== '') {
       var newItem = {
@@ -69,6 +72,7 @@ export default class CourseList extends React.Component {
   }
 
   deleteItem(key) {
+    // Subtract from hours per week workload
     this.props.timeChangeCallback(-1 * this.getNumHours(this._inputElement.value));
 
     var filteredItems = this.state.items.filter(function (item) {
