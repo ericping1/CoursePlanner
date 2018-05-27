@@ -61,7 +61,8 @@ export default class CourseList extends React.Component {
       };
 
       // Adjust the total number of hours per week
-      this.props.timeChangeCallback(this.getNumHours(this._inputElement.value, this.props.qt));
+      this.props.timeChangeCallback(this.getNumHours(this._inputElement.value),
+          this.props.qt);
 
       this.setState((prevState) => {
         return {
