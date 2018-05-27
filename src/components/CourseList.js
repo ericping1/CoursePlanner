@@ -23,8 +23,8 @@ export default class CourseList extends React.Component {
    * @param  {string} course The name of the course
    * @return {int} Number of hours course is expected to take, or placeholder
    */
-  getNumHours(course) {
-    return 3;
+  getNumHours(course, quarter) {
+    return 2;
   }
 
   /**
@@ -61,7 +61,7 @@ export default class CourseList extends React.Component {
       };
 
       // Adjust the total number of hours per week
-      this.props.timeChangeCallback(this.getNumHours(this._inputElement.value));
+      this.props.timeChangeCallback(this.getNumHours(this._inputElement.value, this.props.qt));
 
       this.setState((prevState) => {
         return {
