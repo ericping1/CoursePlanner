@@ -17,13 +17,12 @@ export default class CourseList extends React.Component {
     this.deleteItem = this.deleteItem.bind(this);
   }
 
-
   /**
    * Gets the number of hours a week a course takes on average
    * @param  {string} course The name of the course
    * @return {int} Number of hours course is expected to take, or placeholder
    */
-  getNumHours(course, quarter) {
+  getNumHours(course) {
     return 2;
   }
 
@@ -61,8 +60,7 @@ export default class CourseList extends React.Component {
       };
 
       // Adjust the total number of hours per week
-      this.props.timeChangeCallback(this.getNumHours(this._inputElement.value),
-          this.props.qt);
+      this.props.timeChangeCallback(this.getNumHours(this._inputElement.value));
 
       this.setState((prevState) => {
         return {
@@ -90,6 +88,20 @@ export default class CourseList extends React.Component {
     this.setState({
       items: filteredItems
     });
+  }
+
+
+  componentDidUpdate() {
+    localStorage.setItem(this.props.yr.concat(this.props.qt).concat("cl"), JSON.stringify(this.state));
+  }
+
+  componentDidMount() {
+    const data = localStorage.getItem(this.props.yr.concat(this.props.qt).concat("cl"))
+    if(data) {
+      this.setState(prevState => {
+        return JSON.parse(data)
+      })
+    }
   }
 
   render() {

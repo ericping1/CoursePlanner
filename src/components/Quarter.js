@@ -15,7 +15,20 @@ export default class Quarter extends React.Component {
   hoursCallback = (hoursChange) => {
     var newHours = this.state.hours += hoursChange;
     this.setState ({hours: newHours });
+  }
 
+
+  componentDidUpdate() {
+    localStorage.setItem(this.props.yr.concat(this.props.qt).concat("qt"), JSON.stringify(this.state));
+  }
+
+  componentDidMount() {
+    const data = localStorage.getItem(this.props.yr.concat(this.props.qt).concat("qt"))
+    if(data) {
+      this.setState(prevState => {
+        return JSON.parse(data)
+      })
+    }
   }
 
   render () {
@@ -30,7 +43,7 @@ export default class Quarter extends React.Component {
           </p>
         </tr>
         <tr>
-          <CourseList qt={this.props.qt}
+          <CourseList qt={this.props.qt} yr={this.props.yr}
               timeChangeCallback={this.hoursCallback} />
         </tr>
       </div>
