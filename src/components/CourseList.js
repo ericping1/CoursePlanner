@@ -25,7 +25,6 @@ export default class CourseList extends React.Component {
 
 
     var ref = this.props.db.database().ref(course);
-    // add found boolean here
 
     ref.on("value", (function(snapshot) {
       snapshot.forEach((function(data) {
@@ -73,13 +72,6 @@ export default class CourseList extends React.Component {
     // prevent addition of new course if not
 
     // If course isn't usually offered during current time, alert user
-    var isValid = this.checkCourseValid(this._inputElement.value,
-        this.props.qt)
-    if (!isValid) {
-      alert("WARNING!!!: The course ".concat(this._inputElement.value)
-          .concat(" is usually not offered in the ").concat(this.props.qt)
-          .concat(" quarter. Double check your course schedule!"));
-    }
 
 
     // Check that empty string wasn't accidentally entered
