@@ -21,12 +21,41 @@ export default class CourseList extends React.Component {
    * Adds to the number of hours a week a course takes on average
    * @param  {string} course The name of the course
    */
-  addNumHours(course) {
+  addNumHours(course, quarter) {
+
+
+    var ref = this.props.db.database().ref(course);
+    // add found boolean here
+
+    ref.on("value", (function(snapshot) {
+      snapshot.forEach((function(data) {
+        if (quarter === data.key) {
+          alert(quarter);
+          this.props.timeChangeCallback(0);
+        }
+      }).bind(this))
+    }).bind(this));
+
+
     this.props.timeChangeCallback(2);
+
   }
 
-  subNumHours(course) {
+  subNumHours(course, quarter) {
+    var ref = this.props.db.database().ref(course);
+    // add found boolean here
+
+    ref.on("value", (function(snapshot) {
+      snapshot.forEach((function(data) {
+        if (quarter === data.key) {
+          alert(quarter);
+          this.props.timeChangeCallback(0);
+        }
+      }).bind(this))
+    }).bind(this));
+
     this.props.timeChangeCallback(-2);
+    this.ref.off();
   }
 
 
@@ -66,7 +95,7 @@ export default class CourseList extends React.Component {
 
       // Adjust the total number of hours per week
       //this.props.timeChangeCallback(this.getNumHours(this._inputElement.value));
-      this.addNumHours(this._inputElement.value);
+      this.addNumHours(this._inputElement.value, this.props.qt);
 
       this.setState((prevState) => {
         return {
@@ -87,10 +116,14 @@ export default class CourseList extends React.Component {
     // Subtract from hours per week workload
     //this.props.timeChangeCallback(-1 *
         //this.getNumHours(this._inputElement.value));
-    this.subNumHours(this._inputElement.value);
+    //this.subNumHours(this._inputElement.value, this.props.qt);
 
 
     var filteredItems = this.state.items.filter(function (item) {
+      if (item.key === key) {
+        //this.subNumHours(item.text, this.props.qt);
+      }
+
       return (item.key !== key);
     });
 
