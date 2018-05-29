@@ -1,5 +1,6 @@
 import React from 'react'
 import CourseList from './CourseList';
+import firebase from 'firebase';
 
 export default class Quarter extends React.Component {
 
@@ -9,6 +10,19 @@ export default class Quarter extends React.Component {
     this.state = {
       hours: 0
     };
+
+    var config = {
+      apiKey: "AIzaSyA9E4iXG-mSr3Q-UIHf6UXbsxh3PlCaXkM",
+      authDomain: "courselist-6c0e9.firebaseapp.com",
+      databaseURL: "https://courselist-6c0e9.firebaseio.com",
+      projectId: "courselist-6c0e9",
+      storageBucket: "courselist-6c0e9.appspot.com",
+      messagingSenderId: "986693128490"
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
   }
 
   // Callback function for updating number of hours of work
@@ -44,7 +58,7 @@ export default class Quarter extends React.Component {
         </tr>
         <tr>
           <CourseList qt={this.props.qt} yr={this.props.yr}
-              timeChangeCallback={this.hoursCallback} />
+              timeChangeCallback={this.hoursCallback} db={firebase} />
         </tr>
       </div>
     );
