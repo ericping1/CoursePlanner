@@ -25,11 +25,17 @@ export default class CourseList extends React.Component {
 
 
     var ref = this.props.db.database().ref(course);
+    // add found boolean here
 
     ref.on("value", (function(snapshot) {
+      if (!snapshot.hasChild(quarter)) {
+        alert("WARNING!!!: The course ".concat(course)
+            .concat(" is usually not offered in the ").concat(quarter)
+          . concat(" quarter. Double check your course schedule!"));
+      }
+
       snapshot.forEach((function(data) {
         if (quarter === data.key) {
-          //alert(data.val());
           this.props.timeChangeCallback(Math.round(Number(data.val()) * 100) / 100);
         }
       }).bind(this))
@@ -72,6 +78,13 @@ export default class CourseList extends React.Component {
     // prevent addition of new course if not
 
     // If course isn't usually offered during current time, alert user
+    var isValid = this.checkCourseValid(this._inputElement.value,
+        this.props.qt)
+    if (!isValid) {
+      alert("WARNING!!!: The course ".concat(this._inputElement.value)
+          .concat(" is usually not offered in the ").concat(this.props.qt)
+          .concat(" quarter. Double check your course schedule!"));
+    }
 
 
     // Check that empty string wasn't accidentally entered
