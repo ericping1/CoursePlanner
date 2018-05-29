@@ -30,14 +30,14 @@ export default class CourseList extends React.Component {
     ref.on("value", (function(snapshot) {
       snapshot.forEach((function(data) {
         if (quarter === data.key) {
-          alert(quarter);
-          this.props.timeChangeCallback(0);
+          //alert(data.val());
+          this.props.timeChangeCallback(Math.round(Number(data.val()) * 100) / 100);
         }
       }).bind(this))
     }).bind(this));
 
 
-    this.props.timeChangeCallback(2);
+    //this.props.timeChangeCallback(2);
 
   }
 
@@ -48,14 +48,12 @@ export default class CourseList extends React.Component {
     ref.on("value", (function(snapshot) {
       snapshot.forEach((function(data) {
         if (quarter === data.key) {
-          alert(quarter);
-          this.props.timeChangeCallback(0);
+          this.props.timeChangeCallback(-1 * Math.round(Number(data.val()) * 100) / 100);
         }
       }).bind(this))
     }).bind(this));
 
-    this.props.timeChangeCallback(-2);
-    this.ref.off();
+    //this.props.timeChangeCallback(-2);
   }
 
 
@@ -119,13 +117,13 @@ export default class CourseList extends React.Component {
     //this.subNumHours(this._inputElement.value, this.props.qt);
 
 
-    var filteredItems = this.state.items.filter(function (item) {
+    var filteredItems = this.state.items.filter((function (item) {
       if (item.key === key) {
-        //this.subNumHours(item.text, this.props.qt);
+        this.subNumHours(item.text, this.props.qt);
       }
 
       return (item.key !== key);
-    });
+    }).bind(this));
 
     this.setState({
       items: filteredItems

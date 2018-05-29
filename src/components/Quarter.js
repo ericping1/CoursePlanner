@@ -28,6 +28,9 @@ export default class Quarter extends React.Component {
   // Callback function for updating number of hours of work
   hoursCallback = (hoursChange) => {
     var newHours = this.state.hours += hoursChange;
+
+    newHours = Math.round(newHours * 100) / 100;
+    
     this.setState ({hours: newHours });
   }
 
