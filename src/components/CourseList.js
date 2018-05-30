@@ -14,7 +14,6 @@ export default class CourseList extends React.Component {
 
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
-
   }
 
   /**
@@ -23,32 +22,35 @@ export default class CourseList extends React.Component {
    */
   addNumHours(course, quarter) {
 
-
+    // Get reference to firebase boolean
     var ref = this.props.db.database().ref(course);
-    // add found boolean here
 
     ref.on("value", (function(snapshot) {
+
+      // Check whether course is offered in quarter specified
       if (!snapshot.hasChild(quarter)) {
         alert("WARNING!!!: The course ".concat(course)
             .concat(" is usually not offered in the ").concat(quarter)
           . concat(" quarter. Double check your course schedule!"));
       }
 
+      // Get num of hours per week course should take
+      // TODO: Optimize this
       snapshot.forEach((function(data) {
         if (quarter === data.key) {
           this.props.timeChangeCallback(Math.round(Number(data.val()) * 100) / 100);
         }
       }).bind(this))
     }).bind(this));
-
-
-    //this.props.timeChangeCallback(2);
-
   }
 
+  /**
+   * Removes number of hours from quarter component
+   * @param  {string} course current course being checked
+   * @param  {string} quarter quarter being checked
+   */
   subNumHours(course, quarter) {
     var ref = this.props.db.database().ref(course);
-    // add found boolean here
 
     ref.on("value", (function(snapshot) {
       snapshot.forEach((function(data) {
@@ -57,35 +59,9 @@ export default class CourseList extends React.Component {
         }
       }).bind(this))
     }).bind(this));
-
-    //this.props.timeChangeCallback(-2);
-  }
-
-
-
-  /**
-   * Checks if course is typically offered the quarter stated
-   * @param  {string} course  Course we are searching for
-   * @param  {string} quarter Quarter the course would be offered
-   * @return {boolean} whether the course probably will be offered then
-   */
-  checkCourseValid(course, quarter) {
-    return true;
   }
 
   addItem(e) {
-    // Might want to first check if course exists in our database, and
-    // prevent addition of new course if not
-
-    // If course isn't usually offered during current time, alert user
-    var isValid = this.checkCourseValid(this._inputElement.value,
-        this.props.qt)
-    if (!isValid) {
-      alert("WARNING!!!: The course ".concat(this._inputElement.value)
-          .concat(" is usually not offered in the ").concat(this.props.qt)
-          .concat(" quarter. Double check your course schedule!"));
-    }
-
 
     // Check that empty string wasn't accidentally entered
     if (this._inputElement.value !== '') {
@@ -115,13 +91,6 @@ export default class CourseList extends React.Component {
   }
 
   deleteItem(key) {
-
-    // Subtract from hours per week workload
-    //this.props.timeChangeCallback(-1 *
-        //this.getNumHours(this._inputElement.value));
-    //this.subNumHours(this._inputElement.value, this.props.qt);
-
-
     var filteredItems = this.state.items.filter((function (item) {
       if (item.key === key) {
         this.subNumHours(item.text, this.props.qt);
