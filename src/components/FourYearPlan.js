@@ -9,6 +9,7 @@ export default class FourYearPlan extends React.Component {
         <OneYearPlan yr="2" />
         <OneYearPlan yr="3" />
         <OneYearPlan yr="4" />
+        <OneYearPlan yr="5" />  
       </div>
     );
   }
